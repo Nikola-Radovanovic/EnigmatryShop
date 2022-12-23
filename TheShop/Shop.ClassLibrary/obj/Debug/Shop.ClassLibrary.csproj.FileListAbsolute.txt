@@ -1,0 +1,9 @@
+C:\Enigmatry\TheShop\Shop.ClassLibrary\bin\Debug\Shop.ClassLibrary.dll
+C:\Enigmatry\TheShop\Shop.ClassLibrary\bin\Debug\Shop.ClassLibrary.pdb
+C:\Enigmatry\TheShop\Shop.ClassLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Enigmatry\TheShop\Shop.ClassLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Enigmatry\TheShop\Shop.ClassLibrary\obj\Debug\Shop.ClassLibrary.csproj.AssemblyReference.cache
+C:\Enigmatry\TheShop\Shop.ClassLibrary\obj\Debug\Shop.ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Enigmatry\TheShop\Shop.ClassLibrary\obj\Debug\Shop.ClassLibrary.csproj.CopyComplete
+C:\Enigmatry\TheShop\Shop.ClassLibrary\obj\Debug\Shop.ClassLibrary.dll
+C:\Enigmatry\TheShop\Shop.ClassLibrary\obj\Debug\Shop.ClassLibrary.pdb

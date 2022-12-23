@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Shop.ClassLibrary.Models.Article>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Enigmatry Shop</h1>
+    <p class="lead">One of the most real fake web shops on the earth.</p>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <h3>Articles</h3>
+    </div>
+</div>
+<div class="row" style="margin-bottom: 1em">
+    <div class="col-lg-6">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "form-inline" }))
+        {
+            @Html.TextBox("searchString", "", new { @class = "form-control" })
+            <input type="submit" value="Search" class="btn">
+        }
+    </div>
+    <div class="col-lg-6">
+        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Recent Search
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Article</th>
+                    <th>Price</th>
+                    <th>In Stock</th>
+                    <th>Provider</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+                    <tr>
+                        <td colspan="6" style="color: red">
+                            No Match Any Articles
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var article in Model)
+                    {
+                        <tr>
+                            <td>@article.Id</td>
+                            <td>@article.Name</td>
+                            <td>@article.Price</td>
+                            <td>@article.InStock</td>
+                            <td>@article.ArticleProvider</td>
+                            @if (article.IsSold)
+                            {
+                                <td>
+                                    <strong style="color: red">SOLD</strong>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <button class="btn" type="button" onclick="help(@article.Id)">Buy Article</button>
+                                    <div style="display:none; margin-top: 1em" id="@article.Id">
+                                        <p>Buy @article.Name for @article.Price.</p>
+                                        <p>Only @article.InStock product(s) in stock.</p>
+                                        @Html.ActionLink("Buy Article", "BuyArticle", "Home", article, new { @class = "btn btn-primary" })
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Article</th>
+                            <th>Price</th>
+                            <th>In Stock</th>
+                            <th>Provider</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model == null)
+                        {
+                            <tr>
+                                <td colspan="6" style="color: red">
+                                    No Match Any Articles
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            if (Model.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="6" style="color: red">
+                                        No Match Any Articles
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@((ViewBag.recentArticle as Shop.ClassLibrary.Models.Article).Id)</td>
+                                    <td>@((ViewBag.recentArticle as Shop.ClassLibrary.Models.Article).Name)</td>
+                                    <td>@((ViewBag.recentArticle as Shop.ClassLibrary.Models.Article).Price)</td>
+                                    <td>@((ViewBag.recentArticle as Shop.ClassLibrary.Models.Article).InStock)</td>
+                                    <td>@((ViewBag.recentArticle as Shop.ClassLibrary.Models.Article).ArticleProvider)</td>
+                                    @if (((ViewBag.recentArticle as Shop.ClassLibrary.Models.Article).IsSold))
+                                    {
+                                        <td>
+                                            <strong style="color: red">SOLD</strong>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            @Html.ActionLink("Buy Article", "Index", "Home", new { area = "" }, new { @class = "btn btn-primary" })
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function help(id)
+    {
+        var x = document.getElementById(id);
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+        else {
+            x.style.display = "none";
+        }
+    }
+</script>

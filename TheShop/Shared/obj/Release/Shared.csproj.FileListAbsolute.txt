@@ -1,0 +1,6 @@
+C:\Enigmatry\TheShop\Shared\bin\Release\Shared.dll
+C:\Enigmatry\TheShop\Shared\bin\Release\Shared.pdb
+C:\Enigmatry\TheShop\Shared\obj\Release\Shared.csproj.AssemblyReference.cache
+C:\Enigmatry\TheShop\Shared\obj\Release\Shared.csproj.CoreCompileInputs.cache
+C:\Enigmatry\TheShop\Shared\obj\Release\Shared.dll
+C:\Enigmatry\TheShop\Shared\obj\Release\Shared.pdb
